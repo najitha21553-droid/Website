@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. A. Najitha Banu | Associate Professor | Zoology & Entomology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage: #4a6741;
+      --sage-light: #6b8f62;
+      --sage-pale: #e8f0e6;
+      --cream: #faf7f2;
+      --ink: #1a1f16;
+      --muted: #6b7066;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a0;
+      --white: #ffffff;
+      --border: rgba(74,103,65,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 4rem;
+      background: rgba(250,247,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--sage); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, #dce8d8 0%, transparent 60%),
+                  radial-gradient(ellipse at 10% 80%, #e8d5a022 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 3rem 5rem 6rem;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 2rem; height: 1px; background: var(--gold);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      font-weight: 300; line-height: 1.1;
+      color: var(--ink); margin-bottom: 0.4rem;
+    }
+    h1 em { font-style: italic; color: var(--sage); }
+    .hero-title {
+      font-size: 0.85rem; font-weight: 500; color: var(--muted);
+      margin-bottom: 2rem; letter-spacing: 0.02em;
+    }
+    .hero-desc {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+      max-width: 440px; margin-bottom: 2.5rem;
+    }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-bottom: 2.5rem;
+    }
+    .stat { text-align: left; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 600; color: var(--sage); line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--muted); margin-top: 0.3rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      border-radius: 2px; transition: all 0.25s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--sage); color: white;
+      border: 1px solid var(--sage);
+    }
+    .btn-primary:hover { background: var(--sage-light); border-color: var(--sage-light); }
+    .btn-outline {
+      background: transparent; color: var(--sage);
+      border: 1px solid var(--sage);
+    }
+    .btn-outline:hover { background: var(--sage-pale); }
+
+    .hero-right {
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 6rem 5rem 3rem;
+      position: relative; z-index: 1;
+    }
+    .profile-frame {
+      position: relative; width: 340px; height: 400px;
+    }
+    .profile-frame::before {
+      content: '';
+      position: absolute; top: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--gold-light);
+      border-radius: 2px;
+    }
+    .profile-img-wrap {
+      width: 100%; height: 100%; overflow: hidden;
+      border-radius: 2px;
+      background: linear-gradient(135deg, var(--sage-pale), #d4e0d0);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .profile-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; color: var(--sage); opacity: 0.4;
+    }
+    .profile-badge {
+      position: absolute; bottom: -20px; left: -20px;
+      background: var(--white); border: 1px solid var(--border);
+      padding: 0.9rem 1.2rem; border-radius: 2px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .badge-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+    .badge-val { font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--ink); margin-top: 0.2rem; }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 5rem 6rem; }
+    .section-header {
+      display: flex; align-items: baseline; gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 400; color: var(--ink);
+    }
+    .section-line {
+      flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    }
+    .about-text p {
+      font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--ink); font-weight: 500; }
+    .interests-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
+    }
+    .interest-tag {
+      font-size: 0.75rem; padding: 0.5rem 0.8rem;
+      background: var(--sage-pale); color: var(--sage);
+      border-radius: 2px; letter-spacing: 0.04em;
+      border-left: 2px solid var(--sage-light);
+    }
+    .section-label {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--muted); margin-bottom: 1rem; font-weight: 500;
+    }
+
+    /* ─── EDUCATION ─── */
+    #education { background: var(--cream); }
+    .edu-timeline { display: flex; flex-direction: column; gap: 0; }
+    .edu-item {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 2rem; padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+      padding-left: 1rem; padding-right: 1rem;
+    }
+    .edu-item:first-child { border-top: 1px solid var(--border); }
+    .edu-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem; color: var(--gold); padding-top: 0.2rem;
+    }
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .edu-inst { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .edu-grade {
+      display: inline-block; font-size: 0.7rem; padding: 0.2rem 0.6rem;
+      background: var(--gold-light); color: #7a5e1a; border-radius: 2px;
+      font-weight: 500; letter-spacing: 0.06em; margin-top: 0.3rem;
+    }
+
+    /* ─── RESEARCH ─── */
+    #research { background: var(--ink); color: var(--cream); }
+    #research h2 { color: var(--cream); }
+    #research .section-line { background: rgba(255,255,255,0.1); }
+    .research-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .research-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 2rem; border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .research-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-3px);
+    }
+    .rc-icon { font-size: 1.8rem; margin-bottom: 1.2rem; }
+    .rc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; color: var(--cream); margin-bottom: 0.7rem;
+    }
+    .rc-desc { font-size: 0.83rem; color: rgba(250,247,242,0.55); line-height: 1.7; }
+
+    /* ─── PUBLICATIONS ─── */
+    #publications { background: var(--white); }
+    .pub-metrics {
+      display: flex; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+    }
+    .metric-box {
+      background: var(--sage-pale);
+      padding: 1.2rem 1.8rem; border-radius: 2px;
+      text-align: center; min-width: 120px;
+    }
+    .metric-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; color: var(--sage); font-weight: 600;
+    }
+    .metric-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+    .pub-list { display: flex; flex-direction: column; gap: 0; }
+    .pub-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 36px 1fr;
+      gap: 1rem; align-items: start;
+    }
+    .pub-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; color: var(--gold); padding-top: 0.25rem;
+    }
+    .pub-title { font-size: 0.9rem; line-height: 1.6; color: var(--ink); margin-bottom: 0.3rem; font-weight: 500; }
+    .pub-authors { font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.2rem; }
+    .pub-journal {
+      font-size: 0.75rem; font-style: italic; color: var(--sage);
+    }
+    .pub-if {
+      display: inline-block; font-size: 0.65rem; padding: 0.15rem 0.5rem;
+      background: var(--gold-light); color: #7a5e1a;
+      border-radius: 2px; margin-left: 0.5rem; font-style: normal; font-weight: 500;
+    }
+    .pub-show-more {
+      margin-top: 1.5rem; text-align: center;
+    }
+    .pub-more-btn {
+      background: none; border: 1px solid var(--border);
+      padding: 0.6rem 1.5rem; cursor: pointer; font-size: 0.78rem;
+      color: var(--muted); letter-spacing: 0.08em;
+      border-radius: 2px; transition: all 0.2s;
+    }
+    .pub-more-btn:hover { border-color: var(--sage); color: var(--sage); }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { background: var(--cream); }
+    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .exp-card {
+      background: var(--white); padding: 2rem;
+      border-radius: 2px; border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .exp-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--sage);
+    }
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .exp-org { font-size: 0.85rem; color: var(--sage); font-weight: 500; margin-bottom: 0.2rem; }
+    .exp-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; color: var(--muted);
+    }
+
+    /* ─── AWARDS ─── */
+    #awards { background: var(--white); }
+    .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .award-card {
+      border: 1px solid var(--border); padding: 1.8rem;
+      border-radius: 2px; transition: all 0.25s;
+    }
+    .award-card:hover { border-color: var(--gold); box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .award-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .award-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
+    .award-year { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--gold); }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--sage);
+      color: var(--cream);
+    }
+    #contact h2 { color: var(--cream); }
+    #contact .section-line { background: rgba(255,255,255,0.2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-icon { font-size: 1.1rem; opacity: 0.7; min-width: 28px; }
+    .contact-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.6; margin-bottom: 0.2rem; }
+    .contact-val { font-size: 0.9rem; opacity: 0.9; }
+    .contact-val a { color: var(--cream); text-decoration: underline; text-underline-offset: 3px; }
+    .social-links { display: flex; flex-direction: column; gap: 1rem; }
+    .social-link {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px; text-decoration: none;
+      color: var(--cream); font-size: 0.85rem;
+      transition: all 0.25s;
+    }
+    .social-link:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateX(4px);
+    }
+    .social-link-icon { font-size: 1.2rem; }
+    .social-link-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.65; }
+    .social-link-name { font-weight: 500; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,0.3);
+      padding: 2rem 6rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.75rem; letter-spacing: 0.05em;
+    }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 4rem 2rem 3rem; }
+      section { padding: 3.5rem 2rem; }
+      .about-grid, .research-grid, .exp-grid, .awards-grid, .contact-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">Dr. A. Najitha Banu</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-left fade-up">
+    <div class="hero-eyebrow">Associate Professor · LPU Punjab</div>
+    <h1>Dr. A. <em>Najitha</em><br>Banu</h1>
+    <p class="hero-title">M.Sc. · M.Phil. · Ph.D. &nbsp;|&nbsp; Zoology & Entomology</p>
+    <p class="hero-desc">
+      Pioneering researcher in <strong>biosynthesis of silver nanoparticles</strong>, 
+      medical entomology, and nanotechnology-driven mosquito vector control. 
+      Faculty at Lovely Professional University since 2016.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">666</div>
+        <div class="stat-label">Total Citations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">11</div>
+        <div class="stat-label">h-index</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">41+</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Ph.D. Guided</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#publications" class="btn btn-primary">View Publications</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right fade-up">
+    <div class="profile-frame">
+      <div class="profile-img-wrap">
+        <span class="profile-placeholder">NB</span>
+      </div>
+      <div class="profile-badge">
+        <div class="badge-label">Current Position</div>
+        <div class="badge-val">Associate Professor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-up">
+    <span class="section-num">01</span>
+    <h2>About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>
+        Dr. A. Najitha Banu is an <strong>Associate Professor</strong> in the Department of Zoology, 
+        School of Bioengineering and BioSciences at Lovely Professional University, Phagwara, Punjab. 
+        She earned her Ph.D. from Thiagarajar College, Madurai (affiliated to Madurai Kamaraj University) in 2015.
+      </p>
+      <p>
+        Her doctoral research focused on the <strong>biosynthesis and characterization of silver nanoparticles 
+        using bacterial and fungal entomopathogens</strong> against human vector mosquitoes — a field where 
+        she continues to be a prolific contributor.
+      </p>
+      <p>
+        A recipient of the prestigious <strong>Maulana Azad National Fellowship</strong> (2010–2014), she has 
+        guided 6 Ph.D. scholars to completion and has 41+ peer-reviewed publications with an h-index of 11 
+        and over 666 citations.
+      </p>
+    </div>
+    <div class="fade-up">
+      <div class="section-label">Areas of Interest</div>
+      <div class="interests-grid">
+        <div class="interest-tag">Medical Entomology</div>
+        <div class="interest-tag">Nanotechnology</div>
+        <div class="interest-tag">Agricultural Entomology</div>
+        <div class="interest-tag">Microbiology</div>
+        <div class="interest-tag">Molecular Biology</div>
+        <div class="interest-tag">Drug Delivery</div>
+        <div class="interest-tag">Cell Biology & Signalling</div>
+        <div class="interest-tag">Ecology & Evolution</div>
+        <div class="interest-tag">Developmental Biology</div>
+        <div class="interest-tag">Genetics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header fade-up">
+    <span class="section-num">02</span>
+    <h2>Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-timeline fade-up">
+    <div class="edu-item">
+      <div class="edu-year">2015</div>
+      <div>
+        <div class="edu-degree">Ph.D. in Zoology</div>
+        <div class="edu-inst">Thiagarajar College, Madurai · Madurai Kamaraj University</div>
+        <div class="edu-grade">Biosynthesis of Silver Nanoparticles using Entomopathogens</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2010</div>
+      <div>
+        <div class="edu-degree">M.Phil. in Zoology</div>
+        <div class="edu-inst">Thiagarajar College, Madurai · Madurai Kamaraj University</div>
+        <div class="edu-grade">76.50% · First Class</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2009</div>
+      <div>
+        <div class="edu-degree">M.Sc. in Zoology</div>
+        <div class="edu-inst">Thiagarajar College, Madurai · Madurai Kamaraj University</div>
+        <div class="edu-grade">75.48% · First Class with Distinction</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2006</div>
+      <div>
+        <div class="edu-degree">B.Sc. in Zoology</div>
+        <div class="edu-inst">Government Arts College, Melur · Madurai Kamaraj University</div>
+        <div class="edu-grade">70.77% · First Class</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header fade-up">
+    <span class="section-num">03</span>
+    <h2>Research Focus</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="research-grid fade-up">
+    <div class="research-card">
+      <div class="rc-icon">🔬</div>
+      <div class="rc-title">Silver Nanoparticles Biosynthesis</div>
+      <div class="rc-desc">Synthesizing eco-friendly silver nanoparticles using entomopathogenic bacteria and fungi as potent mosquito larvicidal agents against dengue and malaria vectors.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">🦟</div>
+      <div class="rc-title">Medical Entomology & Vector Control</div>
+      <div class="rc-desc">Investigating sustainable biological control strategies against human vector mosquitoes including Aedes aegypti and Culex quinquefasciatus using biopesticides.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">🍄</div>
+      <div class="rc-title">Entomopathogenic Fungi</div>
+      <div class="rc-desc">Evaluating fungal entomopathogens like Beauveria bassiana and Isaria fumosorosea for insect pest management and nanoparticle synthesis applications.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">⚗️</div>
+      <div class="rc-title">Green Nanotechnology</div>
+      <div class="rc-desc">Developing phytofabricated and myco-synthesized nanoparticles using plant extracts and microbes for antimicrobial and biopesticidal activities.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">🌾</div>
+      <div class="rc-title">Agricultural Entomology</div>
+      <div class="rc-desc">Studying population dynamics of agricultural pests, integrated pest management, and the impact of pesticides on non-target arthropod diversity.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">💊</div>
+      <div class="rc-title">Drug Delivery & Nanomedicine</div>
+      <div class="rc-desc">Exploring nanomaterial-based platforms for antiparasitic activity, metabolic disorder management, and novel drug delivery systems.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header fade-up">
+    <span class="section-num">04</span>
+    <h2>Publications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pub-metrics fade-up">
+    <div class="metric-box">
+      <div class="metric-num">666</div>
+      <div class="metric-label">Total Citations</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">11</div>
+      <div class="metric-label">h-index</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">11</div>
+      <div class="metric-label">i10-index</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">41+</div>
+      <div class="metric-label">Journal Papers</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">6</div>
+      <div class="metric-label">Book Chapters</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">2</div>
+      <div class="metric-label">Patents</div>
+    </div>
+  </div>
+  <div class="pub-list fade-up" id="pubList">
+    <!-- Publications 1-8 shown by default -->
+    <div class="pub-item">
+      <div class="pub-num">01</div>
+      <div>
+        <div class="pub-title">Role of entomopathogenic fungi and nematophagous fungi in mosquito control</div>
+        <div class="pub-authors">Natasha Kudesia, A. Najitha Banu, A.M. Raut and Amine Assouguem</div>
+        <div class="pub-journal">CABI Reviews (2025) 20:1, 0023</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">02</div>
+      <div>
+        <div class="pub-title">Phytofabrication, characterization of silver nanoparticles using Hippophae rhamnoides berries extract and their biological activities</div>
+        <div class="pub-authors">Neha Rana, A. Najitha Banu, Bimlesh Kumar et al.</div>
+        <div class="pub-journal">Frontiers in Microbiology, 15 (2024) <span class="pub-if">IF: 4.0</span></div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">03</div>
+      <div>
+        <div class="pub-title">Toxicity, bioaccumulation, and transformation of silver nanoparticles in aqua biota: a review</div>
+        <div class="pub-authors">Najitha Banu A., Kudesia N., Raut A.M. et al.</div>
+        <div class="pub-journal">Environmental Chemistry Letters 19, 4275–4296 (2021) <span class="pub-if">IF: 15</span></div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">04</div>
+      <div>
+        <div class="pub-title">Cationic amphiphilic dendrimers with tunable hydrophobicity show in vitro activity</div>
+        <div class="pub-authors">Pakrudheen I., Najitha Banu A. and Murugan E.</div>
+        <div class="pub-journal">Environmental Chemistry Letters, 16(4): 1513–1519 (2018) <span class="pub-if">IF: 15</span></div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">05</div>
+      <div>
+        <div class="pub-title">Entomopathogenic Fungi: An Eco-Friendly Synthesis of Sustainable Nanoparticles and Their Nanopesticide Properties</div>
+        <div class="pub-authors">Ritu Bihal, Jameel M. Al-Khayri, A. Najitha Banu et al.</div>
+        <div class="pub-journal">Microorganisms, 11(6):1617 (2023) <span class="pub-if">IF: 4.5</span></div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">06</div>
+      <div>
+        <div class="pub-title">Extracellar synthesis of silver nanoparticles using Bacillus megaterium against malarial and dengue vector (Diptera: Culicidae)</div>
+        <div class="pub-authors">Najitha Banu A. and Balasubramanian C.</div>
+        <div class="pub-journal">Parasitology Research, 114(11): 4069–4079 (2015) <span class="pub-if">IF: 2.38</span></div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">07</div>
+      <div>
+        <div class="pub-title">Myco-synthesis of silver nanoparticles using entomopathogenic fungus Beauveria bassiana against dengue vector, Aedes aegypti</div>
+        <div class="pub-authors">Najitha Banu A. and Balasubramanian C.</div>
+        <div class="pub-journal">Parasitology Research, 113: 2869–2877 (2014) <span class="pub-if">IF: 2.38</span></div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">08</div>
+      <div>
+        <div class="pub-title">Biosynthesis of silver nanoparticles using Bacillus thuringiensis against dengue vector, Aedes aegypti</div>
+        <div class="pub-authors">Najitha Banu A., Balasubramanian C. and Vinayaga Moorthi P.</div>
+        <div class="pub-journal">Parasitology Research, 113: 311–316 (2014) <span class="pub-if">IF: 2.38</span></div>
+      </div>
+    </div>
+
+    <!-- Hidden publications -->
+    <div id="morePubs" style="display:none;">
+      <div class="pub-item">
+        <div class="pub-num">09</div>
+        <div>
+          <div class="pub-title">The Ethnopharmacological Properties of Green-Engineered Metallic Nanoparticles against Metabolic Disorders</div>
+          <div class="pub-authors">Neha Rana, Sandeep Kumar Singh, Najitha A. Banu et al.</div>
+          <div class="pub-journal">Medicina, 59, 1022 (2023) <span class="pub-if">IF: 2.6</span></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">10</div>
+        <div>
+          <div class="pub-title">Impact of Pesticides on Diversity and Abundance of Predatory Arthropods in Rice Ecosystem</div>
+          <div class="pub-authors">A.M. Raut, A. Najitha Banu, Waseem Akram et al.</div>
+          <div class="pub-journal">Applied and Environmental Soil Sciences (2023) <span class="pub-if">IF: 2.2</span></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">11</div>
+        <div>
+          <div class="pub-title">Identification of Folsomia sp. and its ornamentation characteristics from Punjab (India) using molecular and scanning electron microscopy analysis</div>
+          <div class="pub-authors">Ruby Angurana, Joydeep Dutta, A. Najitha Banu et al.</div>
+          <div class="pub-journal">Journal of Agriculture and Food Research 12 (2023) <span class="pub-if">IF: 3.8</span></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">12</div>
+        <div>
+          <div class="pub-title">Larvicidal Efficacy of Green Synthesized Silver Nanoparticles on Aedes aegyptii and its Impact on Non-target Daphnia magna</div>
+          <div class="pub-authors">Natasha Kudesia and A. Najitha Banu</div>
+          <div class="pub-journal">Indian Journal of Microbiology (2024) <span class="pub-if">IF: 2.1</span></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">13</div>
+        <div>
+          <div class="pub-title">Optimization and synthesis of silver nanoparticles using Isaria fumosorosea against human vector mosquitoes</div>
+          <div class="pub-authors">Najitha Banu A. and Balasubramanian C.</div>
+          <div class="pub-journal">Parasitology Research, 113: 3843–3851 (2014) <span class="pub-if">IF: 2.38</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pub-show-more">
+    <button class="pub-more-btn" onclick="togglePubs(this)">Show More Publications ↓</button>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header fade-up">
+    <span class="section-num">05</span>
+    <h2>Professional Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-grid fade-up">
+    <div class="exp-card">
+      <div class="exp-role">Associate Professor</div>
+      <div class="exp-org">Lovely Professional University, Punjab</div>
+      <div class="exp-period">June 2024 – Present</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-role">Assistant Professor</div>
+      <div class="exp-org">Lovely Professional University, Punjab</div>
+      <div class="exp-period">July 2017 – June 2024</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-role">Assistant Professor</div>
+      <div class="exp-org">Lovely Professional University, Punjab</div>
+      <div class="exp-period">July 2016 – November 2016</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-role">Assistant Professor</div>
+      <div class="exp-org">M.K.M. Group of College, Hodal, Palwal, Haryana</div>
+      <div class="exp-period">July 2015 – June 2016</div>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <div class="section-label fade-up">Ph.D. Students Guided</div>
+    <div style="display:flex; gap:1.5rem; flex-wrap:wrap;" class="fade-up">
+      <div class="metric-box" style="background:var(--white); border:1px solid var(--border);">
+        <div class="metric-num" style="color:var(--sage);">6</div>
+        <div class="metric-label">Ph.D. Completed</div>
+      </div>
+      <div class="metric-box" style="background:var(--white); border:1px solid var(--border);">
+        <div class="metric-num" style="color:var(--sage);">2</div>
+        <div class="metric-label">Ph.D. Ongoing</div>
+      </div>
+      <div class="metric-box" style="background:var(--white); border:1px solid var(--border);">
+        <div class="metric-num" style="color:var(--sage);">18</div>
+        <div class="metric-label">PG Completed</div>
+      </div>
+      <div class="metric-box" style="background:var(--white); border:1px solid var(--border);">
+        <div class="metric-num" style="color:var(--sage);">2</div>
+        <div class="metric-label">PG Ongoing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-header fade-up">
+    <span class="section-num">06</span>
+    <h2>Awards & Recognition</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="awards-grid fade-up">
+    <div class="award-card">
+      <div class="award-icon">🏅</div>
+      <div class="award-title">Maulana Azad National Fellowship</div>
+      <div class="award-year">2010 – 2014</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🎖️</div>
+      <div class="award-title">Teacher Appreciation Award</div>
+      <div class="award-year">LPU · 2021</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🥇</div>
+      <div class="award-title">Best Poster Presentation</div>
+      <div class="award-year">National Symposium · NBAII, Bangalore · 2011</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🏆</div>
+      <div class="award-title">First Prize – Darwin 200 Celebration Poster</div>
+      <div class="award-year">Madurai Kamaraj University · 2010</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">📋</div>
+      <div class="award-title">Patents (2 Published)</div>
+      <div class="award-year">2019 & 2023</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">©️</div>
+      <div class="award-title">Copyright Publications (2)</div>
+      <div class="award-year">2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header fade-up">
+    <span class="section-num">07</span>
+    <h2>Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid fade-up">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:najirila2010@gmail.com">najirila2010@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">Mobile</div>
+          <div class="contact-val"><a href="tel:+917508333781">+91 7508333781</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🏛️</div>
+        <div>
+          <div class="contact-label">Institution</div>
+          <div class="contact-val">Dept. of Zoology, School of Bioengineering &amp; BioSciences<br>Lovely Professional University, Phagwara, Punjab – 144411</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🏠</div>
+        <div>
+          <div class="contact-label">Permanent Address</div>
+          <div class="contact-val">2/166, 2/196, Chettiar Street, Keelavalavu<br>Melur TK, Madurai, Tamil Nadu – 625102</div>
+        </div>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/" target="_blank" class="social-link">
+        <span class="social-link-icon">💼</span>
+        <div>
+          <div class="social-link-label">Professional Network</div>
+          <div class="social-link-name">LinkedIn Profile →</div>
+        </div>
+      </a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=59308012100" target="_blank" class="social-link">
+        <span class="social-link-icon">📊</span>
+        <div>
+          <div class="social-link-label">Research Database</div>
+          <div class="social-link-name">Scopus Author Profile →</div>
+        </div>
+      </a>
+      <a href="mailto:najirila2010@gmail.com" class="social-link">
+        <span class="social-link-icon">📧</span>
+        <div>
+          <div class="social-link-label">For Collaborations & Inquiries</div>
+          <div class="social-link-name">Send Email →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Dr. A. Najitha Banu · Lovely Professional University</span>
+  <span>Associate Professor · Department of Zoology</span>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Stagger children
+  document.querySelectorAll('.research-grid .research-card, .awards-grid .award-card, .exp-grid .exp-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.08) + 's';
+    el.classList.add('fade-up');
+    observer.observe(el);
+  });
+
+  // Trigger hero immediately
+  setTimeout(() => {
+    document.querySelectorAll('#hero .fade-up').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 200);
+    });
+  }, 100);
+
+  // Toggle publications
+  function togglePubs(btn) {
+    const more = document.getElementById('morePubs');
+    if (more.style.display === 'none') {
+      more.style.display = 'block';
+      btn.textContent = 'Show Fewer ↑';
+    } else {
+      more.style.display = 'none';
+      btn.textContent = 'Show More Publications ↓';
+    }
+  }
+</script>
+</body>
+</html>
